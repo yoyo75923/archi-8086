@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8086 Emulator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>8086 Emulator</h1>
+      <div class="controls">
+        <button id="runButton" onclick="runCode()">▶ Run</button>
+        <button onclick="resetEmulator()">🔄 Reset</button>
+        <button onclick="stopExecution()">⏹ Stop</button>
+      </div>
+    </header>
+
+    <div class="editor-container">
+      <div class="code-section">
+        <div class="section-title">Code Editor</div>
+        <div class="progress-bar" id="progressBar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <textarea id="code" spellcheck="false">; Enter your 8086 assembly code here</textarea>
+        <div class="error" id="error"></div>
+      </div>
+
+      <div class="output-section">
+        <div class="registers-section">
+          <div class="section-title">Registers</div>
+          <div class="registers" id="registers"></div>
+        </div>
+
+        <div class="memory-section">
+          <div class="section-title">
+            Memory View
+            <div class="memory-controls">
+              <input type="text" id="memoryAddress" placeholder="Address (hex)" value="0000">
+              <button onclick="updateMemoryView()">View</button>
+            </div>
+          </div>
+          <div class="memory-content" id="memoryView"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
